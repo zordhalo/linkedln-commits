@@ -4,6 +4,8 @@
   "description": "Track LinkedIn activity similar to how GitHub displays commits",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
+    "example:oauth": "node src/examples/oauth-usage.js",
     "db:init": "node database/scripts/init.js",
     "db:init:fresh": "node database/scripts/init.js --drop",
     "db:seed": "node database/scripts/seed.js",
@@ -20,6 +22,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.12.2",
+    "crypto": "^1.0.1",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
     "mongoose": "^7.8.4"
   },
   "devDependencies": {

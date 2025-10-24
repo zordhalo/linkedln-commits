@@ -6,11 +6,24 @@
  */
 
 // Load environment variables from .env file
-// In production, you can use dotenv package: require('dotenv').config();
+require('dotenv').config();
 
 const config = {
-  // LinkedIn API Configuration
-  linkedinApiKey: process.env.LINKEDIN_API_KEY || '',
+  // LinkedIn OAuth 2.0 Configuration
+  linkedin: {
+    clientId: process.env.LINKEDIN_CLIENT_ID || '',
+    clientSecret: process.env.LINKEDIN_CLIENT_SECRET || '',
+    redirectUri: process.env.LINKEDIN_REDIRECT_URI || 'http://localhost:3000/auth/linkedin/callback',
+    scope: 'profile email w_member_social', // Default scopes
+    authorizationUrl: 'https://www.linkedin.com/oauth/v2/authorization',
+    tokenUrl: 'https://www.linkedin.com/oauth/v2/accessToken',
+    userInfoUrl: 'https://api.linkedin.com/v2/userinfo'
+  },
+  
+  // Session Configuration
+  session: {
+    secret: process.env.SESSION_SECRET || 'your-secret-key-change-in-production'
+  },
   
   // Database Configuration
   databaseUrl: process.env.DATABASE_URL || '',
