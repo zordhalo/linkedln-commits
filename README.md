@@ -1,48 +1,101 @@
-# linkedln-commits
-Repo to keep track of linkedln activity similarily to how github displays Commits.
+# LinkedIn Commits
 
-## Project Overview
-This project tracks LinkedIn activity and visualizes it in a commit-style format, similar to GitHub's activity display.
+Track your LinkedIn activity similar to how GitHub displays commits. Monitor your daily posts, likes, and comments in one place.
 
-## Directory Structure
+## Features
+
+- Track daily LinkedIn activity (posts, likes, comments)
+- Store user profiles and authentication
+- MongoDB-based storage with optimized indexes
+- Ready-to-use database schema and scripts
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (v4.4 or higher)
+
+## Quick Start
+
+### 1. Installation
+
+```bash
+npm install
 ```
-linkedln-commits/
-├── src/
-│   ├── extractor/     # Data extraction logic
-│   ├── storage/       # Database operations
-│   ├── api/           # Backend API
-│   ├── visualization/ # Frontend rendering
-│   └── scheduler/     # Automation
-├── config/            # Configuration files
-├── data/              # Data storage
-└── tests/             # Test files
+
+### 2. Configuration
+
+Create a `.env` file from the example:
+
+```bash
+cp .env.example .env
 ```
 
-## Getting Started
+Update the MongoDB connection URI in `.env`:
 
-### Environment Setup
+```env
+MONGODB_URI=mongodb://localhost:27017/linkedin_activity
+```
 
-1. **Create environment configuration file**
-   
-   Copy the example environment file and update it with your own values:
-   ```bash
-   cp .env.example .env
-   ```
+### 3. Database Setup
 
-2. **Configure environment variables**
-   
-   Open `.env` file and set the following variables:
-   - `LINKEDIN_API_KEY`: Your LinkedIn API key for accessing LinkedIn data
-   - `DATABASE_URL`: Connection string for your database (e.g., PostgreSQL)
-   - `PORT`: Port number for the API server (default: 3000)
-   - `NODE_ENV`: Environment mode (`development`, `production`, or `test`)
+Initialize the database:
 
-3. **Example configuration**
-   ```
-   LINKEDIN_API_KEY=your_actual_api_key
-   DATABASE_URL=postgresql://username:password@localhost:5432/linkedln_commits
-   PORT=3000
-   NODE_ENV=development
-   ```
+```bash
+npm run db:init
+```
 
-> **Note:** Never commit your `.env` file to version control. It contains sensitive information and is already included in `.gitignore`.
+Optionally, seed with sample data:
+
+```bash
+npm run db:seed
+```
+
+📚 **New to the project?** Check out the [Quick Start Guide](QUICKSTART.md) for detailed setup instructions!
+
+## Database Schema
+
+The application uses MongoDB with two main collections:
+
+### Users
+- Stores user profile and LinkedIn credentials
+- Fields: name, linkedin_url, access_token
+- Indexed on linkedin_url for fast lookups
+
+### Activities
+- Stores daily activity metrics
+- Fields: user_id, date, posts, likes, comments
+- Indexed on user_id and date for efficient queries
+- Unique constraint on user_id + date
+
+For detailed schema documentation, see [docs/database-schema.md](docs/database-schema.md)
+
+## Scripts
+
+- `npm run db:init` - Initialize database collections and indexes
+- `npm run db:init:fresh` - Drop existing data and reinitialize
+- `npm run db:seed` - Populate database with sample data
+- `npm run db:setup` - Initialize and seed in one command
+
+## Project Structure
+
+```
+.
+├── database/
+│   ├── models/           # Mongoose schema models
+│   ├── scripts/          # Database management scripts
+│   ├── config.js         # Database configuration
+│   └── README.md         # Database documentation
+├── docs/
+│   └── database-schema.md # Detailed schema documentation
+└── README.md             # This file
+```
+
+## Documentation
+
+- [Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
+- [Database Schema](docs/database-schema.md) - Complete database documentation
+- [Database README](database/README.md) - Database setup and usage guide
+
+## License
+
+ISC
