@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
+    "example:oauth": "node src/examples/oauth-usage.js",
     "db:init": "node database/scripts/init.js",
     "db:init:fresh": "node database/scripts/init.js --drop",
     "db:seed": "node database/scripts/seed.js",

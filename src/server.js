@@ -29,6 +29,7 @@ app.use(session({
   cookie: {
     secure: config.isProduction(), // Use secure cookies in production (HTTPS)
     httpOnly: true,
+    sameSite: 'lax', // Helps prevent CSRF attacks
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
   }
 }));
