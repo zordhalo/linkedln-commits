@@ -8,7 +8,8 @@
     "db:init:fresh": "node database/scripts/init.js --drop",
     "db:seed": "node database/scripts/seed.js",
     "db:setup": "npm run db:init && npm run db:seed",
-    "db:validate": "node database/scripts/validate.js"
+    "db:validate": "node database/scripts/validate.js",
+    "db:examples": "node database/examples.js"
   },
   "keywords": [
     "linkedin",

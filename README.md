@@ -50,6 +50,8 @@ Optionally, seed with sample data:
 npm run db:seed
 ```
 
+📚 **New to the project?** Check out the [Quick Start Guide](QUICKSTART.md) for detailed setup instructions!
+
 ## Database Schema
 
 The application uses MongoDB with two main collections:
@@ -90,6 +92,7 @@ For detailed schema documentation, see [docs/database-schema.md](docs/database-s
 
 ## Documentation
 
+- [Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
 - [Database Schema](docs/database-schema.md) - Complete database documentation
 - [Database README](database/README.md) - Database setup and usage guide
 
