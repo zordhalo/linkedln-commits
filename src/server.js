@@ -253,7 +253,7 @@ app.use((req, res) => {
 });
 
 // Global error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   console.error('Unhandled error:', err);
   res.status(500).json({
     error: 'internal_error',

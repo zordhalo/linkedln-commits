@@ -6,7 +6,7 @@
 const axios = require('axios');
 const crypto = require('crypto');
 const config = require('../../config/config');
-const { OAuthToken, User } = require('../../database/models');
+const { OAuthToken } = require('../../database/models');
 
 class OAuthService {
   /**
@@ -217,7 +217,7 @@ class OAuthService {
     try {
       await this.getValidAccessToken(userId);
       return true;
-    } catch (error) {
+    } catch {
       return false;
     }
   }
@@ -252,11 +252,11 @@ class OAuthService {
           const newTokenData = await this.refreshAccessToken(tokenDoc.refresh_token);
           await this.storeTokens(tokenDoc.user_id, newTokenData);
           results.success++;
-        } catch (error) {
+        } catch (err) {
           results.failed++;
           results.errors.push({
             userId: tokenDoc.user_id,
-            error: error.message
+            error: err.message
           });
         }
       }
