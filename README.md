@@ -36,7 +36,7 @@ cp .env.example .env
 Update the configuration in `.env`:
 
 ```env
-# LinkedIn OAuth (get from https://www.linkedin.com/developers/apps)
+# LinkedIn OAuth (get from https://www.linkedin.com/developers/apps/228836775/auth)
 LINKEDIN_CLIENT_ID=your_client_id_here
 LINKEDIN_CLIENT_SECRET=your_client_secret_here
 LINKEDIN_REDIRECT_URI=http://localhost:3000/auth/linkedin/callback
@@ -169,10 +169,12 @@ For detailed API documentation, see [src/api/README.md](src/api/README.md)
 ## LinkedIn Developer Setup
 
 1. Go to https://www.linkedin.com/developers/apps
-2. Create a new application
+2. Create a new application (or use existing app: https://www.linkedin.com/developers/apps/228836775/auth)
 3. Configure OAuth 2.0 redirect URLs
 4. Copy Client ID and Client Secret to `.env`
 5. Request access to required products (Sign in with LinkedIn)
+
+**Project LinkedIn App**: https://www.linkedin.com/developers/apps/228836775/auth
 
 See the [issue comments](https://github.com/zordhalo/linkedln-commits/issues) for detailed setup instructions.
 

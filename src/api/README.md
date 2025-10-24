@@ -46,11 +46,13 @@ The OAuth implementation provides secure authentication using LinkedIn's 3-legge
 ### 1. LinkedIn Developer Portal Configuration
 
 1. Go to https://www.linkedin.com/developers/apps
-2. Create a new application
+2. Create a new application (or use existing app: https://www.linkedin.com/developers/apps/228836775/auth)
 3. Configure OAuth 2.0 settings:
    - Redirect URL: `http://localhost:3000/auth/linkedin/callback` (development)
    - Redirect URL: `https://yourdomain.com/auth/linkedin/callback` (production)
 4. Copy your Client ID and Client Secret
+
+**Project LinkedIn App**: https://www.linkedin.com/developers/apps/228836775/auth
 
 ### 2. Environment Configuration
 
