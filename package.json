@@ -1,0 +1,26 @@
+{
+  "name": "linkedin-commits",
+  "version": "1.0.0",
+  "description": "Track LinkedIn activity similar to how GitHub displays commits",
+  "main": "index.js",
+  "scripts": {
+    "db:init": "node database/scripts/init.js",
+    "db:init:fresh": "node database/scripts/init.js --drop",
+    "db:seed": "node database/scripts/seed.js",
+    "db:setup": "npm run db:init && npm run db:seed"
+  },
+  "keywords": [
+    "linkedin",
+    "activity",
+    "tracking",
+    "commits"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^7.8.4"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
