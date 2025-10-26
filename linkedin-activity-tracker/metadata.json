@@ -1,0 +1,5 @@
+{
+  "name": "LinkedIn Activity Tracker",
+  "description": "An application that simulates and visualizes a user's LinkedIn activity over the past year using a GitHub-style contribution graph. It uses the Gemini API to generate plausible daily activity summaries.",
+  "requestFramePermissions": []
+}
