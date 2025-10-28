@@ -294,7 +294,7 @@ The scheduler exports a singleton instance, so all imports reference the same sc
 
 ## Dependencies
 
-- [node-cron](https://www.npmjs.com/package/node-cron) v3.0.3+
+- [node-cron](https://www.npmjs.com/package/node-cron) v4.2.1
 
 ## License
 

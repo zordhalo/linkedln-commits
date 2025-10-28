@@ -52,25 +52,32 @@ class CronScheduler {
 
       console.log(`[Scheduler] Starting job "${jobName}" with schedule: ${cronSchedule} (${jobOptions.timezone})`);
 
-      // Create and start the cron job
-      const cronJob = cron.schedule(cronSchedule, async () => {
-        console.log(`[Scheduler] Job "${jobName}" triggered at ${new Date().toISOString()}`);
-        try {
-          await task();
-          console.log(`[Scheduler] Job "${jobName}" completed successfully at ${new Date().toISOString()}`);
-        } catch (error) {
-          console.error(`[Scheduler] Job "${jobName}" failed:`, error.message);
-        }
-      }, jobOptions);
-
-      // Store job reference
-      this.jobs.set(jobName, {
-        cronJob,
+      // Store job reference (need to initialize before creating cron job)
+      const jobInfo = {
+        cronJob: null,
         schedule: cronSchedule,
         timezone: jobOptions.timezone,
         createdAt: new Date(),
         lastRun: null
-      });
+      };
+
+      // Create and start the cron job
+      const cronJob = cron.schedule(cronSchedule, async () => {
+        const triggerTime = new Date();
+        console.log(`[Scheduler] Job "${jobName}" triggered at ${triggerTime.toISOString()}`);
+        try {
+          await task();
+          jobInfo.lastRun = triggerTime; // Update lastRun timestamp
+          console.log(`[Scheduler] Job "${jobName}" completed successfully at ${new Date().toISOString()}`);
+        } catch (error) {
+          jobInfo.lastRun = triggerTime; // Update lastRun even on failure
+          console.error(`[Scheduler] Job "${jobName}" failed:`, error.message);
+        }
+      }, jobOptions);
+
+      // Store complete job reference
+      jobInfo.cronJob = cronJob;
+      this.jobs.set(jobName, jobInfo);
 
       this.isRunning = true;
       console.log(`[Scheduler] Job "${jobName}" started successfully`);
@@ -231,35 +238,6 @@ class CronScheduler {
    */
   validateCronExpression(expression) {
     return cron.validate(expression);
-  }
-
-  /**
-   * Get the next scheduled run time for a job
-   * @param {string} jobName - Name of the job
-   * @returns {Object} Status object with next run time
-   */
-  getNextRunTime(jobName = 'default') {
-    try {
-      if (!this.jobs.has(jobName)) {
-        return {
-          success: false,
-          message: `Job "${jobName}" not found`
-        };
-      }
-
-      // Note: node-cron doesn't provide a built-in way to get next run time
-      // This is a placeholder for potential future enhancement
-      return {
-        success: true,
-        message: 'Next run time calculation not yet implemented',
-        jobName
-      };
-    } catch (error) {
-      return {
-        success: false,
-        message: `Failed to get next run time: ${error.message}`
-      };
-    }
   }
 }
 
