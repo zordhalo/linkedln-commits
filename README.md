@@ -139,8 +139,10 @@ For detailed schema documentation, see [docs/database-schema.md](docs/database-s
 ## Documentation
 
 - [Quick Start Guide](QUICKSTART.md) - Get started in 5 minutes
-- [API Documentation](src/api/README.md) - Complete OAuth API documentation
+- [LinkedIn OAuth 2.0 Guide](docs/linkedin-oauth-guide.md) - **Complete OAuth implementation guide**
+- [API Documentation](src/api/README.md) - OAuth API reference
 - [Database Schema](docs/database-schema.md) - Complete database documentation
+- [LinkedIn API Research](docs/linkedin-api-research.md) - API capabilities and limitations
 - [Security Guide](SECURITY.md) - Security considerations and best practices
 - [Database README](database/README.md) - Database setup and usage guide
 
@@ -153,6 +155,8 @@ The application implements LinkedIn OAuth 2.0 authentication flow with:
 - **Secure Storage**: Tokens stored with encryption support and excluded from default queries
 - **Error Handling**: Comprehensive error handling for all OAuth scenarios
 - **Session Management**: Secure session handling with HTTP-only cookies
+
+📖 **For complete OAuth implementation details, see the [LinkedIn OAuth 2.0 Guide](docs/linkedin-oauth-guide.md)**
 
 ### API Endpoints
 

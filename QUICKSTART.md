@@ -236,14 +236,16 @@ npm install
 
 ## Next Steps
 
-1. **Read the full documentation**: See [docs/database-schema.md](docs/database-schema.md)
-2. **Explore the models**: Check out files in `database/models/`
-3. **Review the scripts**: Look at `database/scripts/` for examples
-4. **Build your app**: Use the models in your application code
+1. **Set up OAuth authentication**: See [docs/linkedin-oauth-guide.md](docs/linkedin-oauth-guide.md)
+2. **Read the full documentation**: See [docs/database-schema.md](docs/database-schema.md)
+3. **Explore the models**: Check out files in `database/models/`
+4. **Review the scripts**: Look at `database/scripts/` for examples
+5. **Build your app**: Use the models in your application code
 
 ## Getting Help
 
 - Check [README.md](README.md) for general information
+- Read [LinkedIn OAuth 2.0 Guide](docs/linkedin-oauth-guide.md) for OAuth implementation
 - Read [database/README.md](database/README.md) for detailed database docs
 - Review [docs/database-schema.md](docs/database-schema.md) for schema details
 

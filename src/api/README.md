@@ -2,6 +2,8 @@
 
 This directory contains the complete OAuth 2.0 authentication implementation for LinkedIn integration.
 
+📖 **For the complete OAuth implementation guide, see [docs/linkedin-oauth-guide.md](../../docs/linkedin-oauth-guide.md)**
+
 ## Overview
 
 The OAuth implementation provides secure authentication using LinkedIn's 3-legged OAuth 2.0 flow (Member Authorization). It includes:
