@@ -90,11 +90,12 @@ class RetryHandler {
         }
 
         // Check if error is retryable
-        const isRetryable = retryableErrors.some(code => 
-          error.code === code || 
-          error.message.includes(code) ||
-          (error.response && error.response.status >= 500)
+        // Network errors (ECONNRESET, ETIMEDOUT, etc.) or HTTP 5xx errors
+        const isNetworkError = retryableErrors.some(code => 
+          error.code === code || error.message.includes(code)
         );
+        const isServerError = error.response && error.response.status >= 500;
+        const isRetryable = isNetworkError || isServerError;
 
         if (!isRetryable) {
           throw error; // Don't retry non-retryable errors
@@ -161,7 +162,7 @@ class LinkedInExtractor {
         const response = await axios.get(config.linkedin.userInfoUrl, {
           headers: {
             'Authorization': `Bearer ${accessToken}`,
-            'LinkedIn-Version': '202410'
+            'LinkedIn-Version': config.linkedin.apiVersion
           }
         });
         return response.data;
