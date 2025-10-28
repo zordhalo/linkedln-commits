@@ -34,6 +34,13 @@ const config = {
   // Environment
   nodeEnv: process.env.NODE_ENV || 'development',
   
+  // Scheduler Configuration
+  scheduler: {
+    schedule: process.env.CRON_SCHEDULE || '0 2 * * *', // Default: Daily at 2 AM
+    timezone: process.env.TIMEZONE || 'America/New_York',
+    enabled: process.env.SCHEDULER_ENABLED !== 'false' // Default: enabled
+  },
+  
   // Helper methods
   isDevelopment: function() {
     return this.nodeEnv === 'development';
