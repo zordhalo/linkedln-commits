@@ -111,7 +111,7 @@ class OAuthService {
       const response = await axios.get(config.linkedin.userInfoUrl, {
         headers: {
           'Authorization': `Bearer ${accessToken}`,
-          'LinkedIn-Version': '202410'
+          'LinkedIn-Version': config.linkedin.apiVersion
         }
       });
 

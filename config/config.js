@@ -17,7 +17,8 @@ const config = {
     scope: 'profile email w_member_social', // Default scopes
     authorizationUrl: 'https://www.linkedin.com/oauth/v2/authorization',
     tokenUrl: 'https://www.linkedin.com/oauth/v2/accessToken',
-    userInfoUrl: 'https://api.linkedin.com/v2/userinfo'
+    userInfoUrl: 'https://api.linkedin.com/v2/userinfo',
+    apiVersion: '202410' // LinkedIn API version header
   },
   
   // Session Configuration
