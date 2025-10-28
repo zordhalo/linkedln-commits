@@ -26,7 +26,8 @@
     "crypto": "^1.0.1",
     "express": "^5.1.0",
     "express-session": "^1.18.2",
-    "mongoose": "^7.8.4"
+    "mongoose": "^7.8.4",
+    "node-cron": "^4.2.1"
   },
   "devDependencies": {
     "dotenv": "^16.3.1"
