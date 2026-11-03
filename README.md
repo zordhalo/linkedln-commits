@@ -1,5 +1,7 @@
 # LinkedIn Commits
 
+[![MCP servers live](https://whobuildsagents.com/badge/advancelabs.dev.svg)](https://whobuildsagents.com/advancelabs.dev)
+
 Track your LinkedIn activity similar to how GitHub displays commits. Monitor your daily posts, likes, and comments in one place.
 
 ## Features
